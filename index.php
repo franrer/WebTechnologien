@@ -1,7 +1,9 @@
 <span>Ihr Kalender Blubb</span>
 <?php
+session_start();
+require 'php/crud/dbConn.php';
 // Set your timezone
-date_default_timezone_set('Asia/Tokyo');
+date_default_timezone_set('Europe/Berlin');
 
 // Get prev & next month
 if (isset($_GET['ym'])) {
@@ -74,12 +76,13 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8">
     <title>PHP Calendar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <style>
         .container {
             font-family: 'Noto Sans', sans-serif;
@@ -127,10 +130,10 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
         </table>
     </div>
     <button type="event"> Termin Erstellung </button>
-    <button type="darkmode"> Darkmode</button>
+    <button type="darkmode" href="php/darkmode.php"> Darkmode</button>
     <button type="filter">Filter</button>
     <button type="sort"> Sortieren</button>
-    <button type="pdfExport"> export to pdf </button>
+    <a href="php/exportPdf.php"> <button  type="pdfExport"> export to pdf </button>
     <a href="php/crud/login.php"> login </button>
 </body>
 </html>
